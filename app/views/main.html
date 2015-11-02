@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="container">
+    <div class="col-sm-6">
+      <a href="{{currentOrganisation.url}}"><h3>{{currentOrganisation.displayName}}</h3></a>
+    </div>
+    <div class="col-sm-6">
+    <select class="pull-right" ng-model="currentOrganisation" ng-options="currentOrganisation as currentOrganisation.displayName for currentOrganisation in organisations" ng-change="organisationChanged(currentOrganisation)" >
+    </select>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6" ng-repeat="member in members">
+    <todoing member="member" cards="cards" organisation="54732e983640cc9c1163a11b"></todoing>
+  </div>
+</div>
