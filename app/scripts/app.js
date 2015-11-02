@@ -19,16 +19,21 @@ angular
 
 .config(['TrelloApiProvider', function(TrelloApiProvider) {
 
-	console.log('init trello');
+    var key = window.localStorage.getItem('trello_key');
+    var secret = window.localStorage.getItem('trello_secret');
 
-    window.localStorage.setItem('trello_key','b4f03ac87fdb959d645e56f67bc55cd2');
+    if (typeof key !== 'undefined' && typeof secret !== 'undefined' && key !== null && secret !== null) {
 
-    TrelloApiProvider.init({
-        key: 'b4f03ac87fdb959d645e56f67bc55cd2',
-        secret: '9ff39d93fe53cb12b50fefaf6d4abc3fb62b9a921e4914567a09874c6dcc1f41',
+        TrelloApiProvider.init({
+        key: key,
+        secret: secret,
         scopes: {read: true, write: false, account: true},
         AppName: 'Todoing'
-    });
+        });
+
+    };
+
+
 
 
 }]);

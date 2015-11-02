@@ -62,7 +62,7 @@ angular.module('todoingApp')
         var deferred = $q.defer();
 
         organisation  = window.localStorage.getItem('trello_organisation'); 
-        
+
         $http.get('https://api.trello.com/1/organizations/'+organisation+'/boards/?open=true&lists=open&fields=name&filter=open&token='+token+'&key='+key).then(function(boards){
             deferred.resolve(boards.data);
         }, function(err){

@@ -1,8 +1,8 @@
-  <div class="panel panel-default" ng-show="myCards.length">
-    <div class="panel-heading">{{member.fullName}} [{{myCards.length}}]</div>
+  <div class="panel panel-default panel-todoing" ng-show="myCards.length">
+    <div class="panel-heading">{{member.fullName}} <span class="label label-default">{{myCards.length}}</span></div>
     <div class="panel-body">
     <div class="col-sm-6">
-    	<h3>TODO [{{myTodoCards.length}}]</h3>
+    	<h3>to do <span class="label label-default">{{myTodoCards.length}}</span></h3>
     	<ol>
 		    <li ng-repeat="card in myTodoCards">
 				<a href="{{card.url}}">{{card.name}}</a>
@@ -10,7 +10,7 @@
 	    </ol>
     </div>
     <div class="col-sm-6">
-	    <h3>doing [{{myDoingCards.length}}]</h3>
+	    <h3>doing <span class="label label-default">{{myDoingCards.length}}</span></h3>
     	<ol>
 		    <li ng-repeat="card in myDoingCards">
 				<a href="{{card.url}}">{{card.name}}</a>

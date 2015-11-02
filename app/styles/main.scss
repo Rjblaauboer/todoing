@@ -14,59 +14,23 @@ body {
   padding: 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
+.panel-todoing {
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  .panel-body {
+      padding:0px;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+
+      ol {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding-left: 17px;
+        list-style-type: circle;
+         li {
+          padding-bottom: 10px;
+         }
+      }
   }
 }
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

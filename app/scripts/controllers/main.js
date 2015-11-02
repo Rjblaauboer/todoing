@@ -11,6 +11,32 @@ angular.module('todoingApp')
   .controller('MainCtrl', function ($scope, trelloader) {
 
 
+    var key = window.localStorage.getItem('trello_key');
+    var secret = window.localStorage.getItem('trello_secret');
+
+    var checkCreds = function(){
+    	key = window.localStorage.getItem('trello_key');
+    	secret = window.localStorage.getItem('trello_secret');
+    	$scope.hasCreds = (key !== null &&  secret !== null);
+    	return  $scope.hasCreds;
+    }
+
+    $scope.reset = function reset(){
+    	delete window.localStorage["trello_key"];
+    	delete window.localStorage["trello_secret"];
+    	window.location.reload();
+    }
+
+    checkCreds();
+
+    $scope.update = function update(creds) {
+    	key = window.localStorage.setItem('trello_key', creds.key);
+	    secret = window.localStorage.setItem('trello_secret', creds.secret);
+	    if(checkCreds()){
+	    	$scope.hasCreds = true;
+	    	window.location.reload();
+	    };
+    }
 
   	var getCardsForLists = function(lists) {
   		trelloader.getCardsForLists(lists).then(function(cards){
@@ -44,33 +70,39 @@ angular.module('todoingApp')
 
   	}
 
-  	trelloader.authenticate(function(){
 
-	    trelloader.getOrganisations().then(function(organisations){
 
-  	    	console.log('organisations ', organisations);
+  	var init = function(){
 
-  	    	$scope.organisations = organisations;
+  		if (!checkCreds()) {return;};
 
-  	    	var organisationId = window.localStorage.getItem('trello_organisation');
+	  	trelloader.authenticate(function(){
 
-  	    	$scope.currentOrganisation =  _.filter(organisations, function(org){
-  	    		return org.id === organisationId;
-  	    	})[0];
+		    trelloader.getOrganisations().then(function(organisations){
 
-  	    	console.log('current org :', $scope.currentOrganisation);
+	  	    	console.log('organisations ', organisations);
 
-			if ($scope.currentOrganisation) {
-				$scope.organisationChanged($scope.currentOrganisation);
-			};
+	  	    	$scope.organisations = organisations;
 
-	    }, function(err){
-	        console.error(err);
+	  	    	var organisationId = window.localStorage.getItem('trello_organisation');
+
+	  	    	$scope.currentOrganisation =  _.filter(organisations, function(org){
+	  	    		return org.id === organisationId;
+	  	    	})[0];
+
+	  	    	console.log('current org :', $scope.currentOrganisation);
+
+				if ($scope.currentOrganisation) {
+					$scope.organisationChanged($scope.currentOrganisation);
+				};
+
+		    }, function(err){
+		        console.error(err);
+		    });
+
 	    });
-
-
-    });
-
+	};
+	init();
 
 
   });
