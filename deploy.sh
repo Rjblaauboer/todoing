@@ -4,4 +4,5 @@ then
     echo "Which folder do you want to deploy to GitHub Pages?"
       exit 1
     fi
+    grunt build
     git subtree push --prefix $1 origin gh-pages
