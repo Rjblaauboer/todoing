@@ -1,0 +1,22 @@
+  <div class="panel panel-default panel-todoing" ng-show="myCards.length">
+    <div class="panel-heading">{{member.fullName}} <span class="label label-primary
+    ">{{myCards.length}}</span></div>
+    <div class="panel-body">
+    <div class="col-sm-6">
+    	<h3>to do <span class="label label-primary">{{myTodoCards.length}}</span></h3>
+    	<ol>
+		    <li ng-repeat="card in myTodoCards">
+				<a href="{{card.url}}">{{card.name}}</a>
+		    </li>
+	    </ol>
+    </div>
+    <div class="col-sm-6">
+	    <h3>doing <span class="label label-success">{{myDoingCards.length}}</span></h3>
+    	<ol>
+		    <li ng-repeat="card in myDoingCards">
+				<a href="{{card.url}}">{{card.name}}</a>
+		    </li>
+	    </ol>
+    </div>
+    </div>
+  </div>
