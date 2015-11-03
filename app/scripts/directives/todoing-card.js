@@ -9,7 +9,7 @@
 angular.module('todoingApp')
   .directive('todoing', function () {
     return {
-      templateUrl: '/views/todoing-card.html',
+      templateUrl: 'views/card.html',
       scope:{
       	member:'=',
       	cards:'=',
