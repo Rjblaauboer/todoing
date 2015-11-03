@@ -24,13 +24,13 @@ module.exports = function(config) {
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
-      'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-trello/dist/angular-trello.min.js',
       'bower_components/underscore/underscore.js',
       'bower_components/angular-underscore/angular-underscore.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
