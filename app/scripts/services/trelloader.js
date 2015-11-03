@@ -34,7 +34,7 @@ angular.module('todoingApp')
     }
 
     var getMemberCards = function getMemberCards(memberId) {
-        organisation  = window.localStorage.getItem('trello_organisation');
+        var organisation  = window.localStorage.getItem('trello_organisation');
         return TrelloApi.Rest('GET', 'organizations/'+organisation+'/members/'+memberId+'/cards/?open=true');
     };
 
@@ -46,8 +46,10 @@ angular.module('todoingApp')
 
         var deferred = $q.defer();
 
-        organisation  = window.localStorage.getItem('trello_organisation');
-
+        var organisation  = window.localStorage.getItem('trello_organisation');
+        var key = window.localStorage.getItem('trello_key');
+        var token = window.localStorage.getItem('trello_token');
+        
         $http.get('https://api.trello.com/1/organizations/'+organisation+'/members/?token='+token+'&key='+key).then(function(members){
             deferred.resolve(members.data);
         }, function(err){
@@ -61,7 +63,9 @@ angular.module('todoingApp')
 
         var deferred = $q.defer();
 
-        organisation  = window.localStorage.getItem('trello_organisation'); 
+        var organisation  = window.localStorage.getItem('trello_organisation'); 
+        var key = window.localStorage.getItem('trello_key');
+        var token = window.localStorage.getItem('trello_token');
 
         $http.get('https://api.trello.com/1/organizations/'+organisation+'/boards/?open=true&lists=open&fields=name&filter=open&token='+token+'&key='+key).then(function(boards){
             deferred.resolve(boards.data);
@@ -78,6 +82,9 @@ angular.module('todoingApp')
 
         //GET https://api.trello.com/1/organizations/myorganization
         var deferred = $q.defer();
+
+        var key = window.localStorage.getItem('trello_key');
+        var token = window.localStorage.getItem('trello_token');
 
         $http.get('https://api.trello.com/1/members/me/organizations?token='+token+'&key='+key).then(function(_organisations){
             deferred.resolve(_organisations.data);

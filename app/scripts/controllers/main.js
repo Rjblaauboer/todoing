@@ -24,6 +24,8 @@ angular.module('todoingApp')
     $scope.reset = function reset(){
     	delete window.localStorage["trello_key"];
     	delete window.localStorage["trello_secret"];
+    	delete window.localStorage["trello_organisation"];
+    	delete window.localStorage["trello_token"];
     	window.location.reload();
     }
 
@@ -86,9 +88,13 @@ angular.module('todoingApp')
 
 	  	    	var organisationId = window.localStorage.getItem('trello_organisation');
 
-	  	    	$scope.currentOrganisation =  _.filter(organisations, function(org){
-	  	    		return org.id === organisationId;
-	  	    	})[0];
+	  	    	if (!organisationId) {
+					$scope.currentOrganisation = organisations[0];
+	  	    	} else {
+		  	    	$scope.currentOrganisation =  _.filter(organisations, function(org){
+		  	    		return org.id === organisationId;
+		  	    	})[0];
+	  	    	}	
 
 	  	    	console.log('current org :', $scope.currentOrganisation);
 
