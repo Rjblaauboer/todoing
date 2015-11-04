@@ -14,6 +14,18 @@ body {
   padding: 0;
 }
 
+h1, h2, h3, h4, h5 {
+  color: #666;
+}
+
+img {
+      vertical-align: middle;
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    height: 35px;
+    border-top-left-radius: 4px;
+}
 
 .navbar-right {
     margin-top: 15px;
@@ -44,7 +56,7 @@ body {
     h1, h2, h3, h4, h5 {
       margin-top: 3px;
       margin-bottom: 3px;
-      color: #777;
+      margin-left: 30px;
     }
 
     span {
@@ -61,6 +73,11 @@ body {
   .panel-body {
       padding:0px;
 
+      h1, h2, h3, h4, h5 {
+        margin-top: 3px;
+        padding-bottom:  13px;
+        text-align: center;
+      }
 
 
       ol {
@@ -93,11 +110,25 @@ body {
 
     p {
       padding: 6px;
+      font-weight: 600;
     }
 
     a, a:hover {
-      color: #333;
+      color: #4E4E4E;
       text-decoration: none;
+    }
+}
+
+.todoing-cell:hover {
+    background-color: #337ab7;
+    border: 1px #337ab7 solid;
+
+    span {
+      background-color: #337ab7;
+    }
+
+    a, a:hover {
+      color: #FFF;
     }
 }
 
@@ -106,8 +137,9 @@ body {
       padding: .0em .6em .0em;
     }
 
-  margin-top: 50px;
-  margin-bottom: 50px;
+  //border-bottom: 1px #EFEFEF solid;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 

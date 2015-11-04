@@ -46,7 +46,7 @@ angular.module('todoingApp')
         var key = window.localStorage.getItem('trello_key');
         var token = window.localStorage.getItem('trello_token');
 
-        $http.get('https://api.trello.com/1/organizations/'+organisation+'/members/?token='+token+'&key='+key).then(function(members){
+        $http.get('https://api.trello.com/1/organizations/'+organisation+'/members/?fields=all&token='+token+'&key='+key).then(function(members){
             deferred.resolve(members.data);
         }, function(err){
             deferred.reject(err);

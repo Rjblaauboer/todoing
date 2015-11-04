@@ -25,6 +25,7 @@ angular.module('todoingApp')
 		$scope.cardsLoaded = false;
 		$scope.myCards = [];
 
+		todoRegex
 
         var doingRegex = /(doing)/g;
         var todoRegex = /(to do)/g;
