@@ -9,22 +9,26 @@
         <div class="card-title">
         	<h3><span class="label" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span> to do</h3>
         </div>
-	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
-            <a href="{{card.url}}">
-                <span class="label label-default">{{card.board.name}}</span><br>
-				<p>{{card.name}}</p>
-            </a>
-	    </div>
+        <div class=" cell-column">
+    	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
+                <a href="{{card.url}}">
+                    <span class="label label-default">{{card.board.name}}</span><br>
+    				<p>{{card.name}}</p>
+                </a>
+    	    </div>
+        </div>
     </div>
     <div class="col-sm-6">
         <div class="card-title">
     	    <h3><span class="label" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span> doing</h3>
         </div>
-        <div class="todoing-cell" ng-repeat="card in myDoingCards">
-            <a href="{{card.url}}">
-                <span class="label label-default">{{card.board.name}}</span><br>
-                <p>{{card.name}}</p>
-            </a>
+        <div class="cell-column">
+            <div class="todoing-cell " ng-repeat="card in myDoingCards">
+                <a href="{{card.url}}">
+                    <span class="label label-default">{{card.board.name}}</span><br>
+                    <p>{{card.name}}</p>
+                </a>
+            </div>
         </div>
     </div>
     </div>

@@ -3,6 +3,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+
+$max-cell-height:520px;
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -18,11 +21,16 @@ h1, h2, h3, h4, h5 {
   color: #666;
 }
 
+.col-sm-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 img {
       vertical-align: middle;
     position: absolute;
     top: 0px;
-    left: 15px;
+    left: 10px;
     height: 35px;
     border-top-left-radius: 4px;
 }
@@ -48,6 +56,10 @@ img {
 
 .panel-todoing {
 
+  height: $max-cell-height;
+  max-height: $max-cell-height;
+  overflow: hidden;
+
   .panel-heading {
 
     padding-top: 1px;
@@ -63,7 +75,7 @@ img {
       position: absolute;
       font-size: 100%;
       top: 0px;
-      right: 15px;
+      right: 10px;
       border-bottom-left-radius: 0px;
       border-top-left-radius: 0px;
       border-bottom-right-radius: 0px;
@@ -71,11 +83,24 @@ img {
   }
 
   .panel-body {
+
       padding:0px;
+      overflow: hidden;
+
+      .cell-column {
+        height: $max-cell-height;
+        overflow: scroll;
+        padding-right: 1px;
+        padding-bottom: 20px;
+
+        &left {
+
+        }
+      }
 
       h1, h2, h3, h4, h5 {
         margin-top: 3px;
-        padding-bottom:  13px;
+        padding-bottom:  0px;
         text-align: center;
       }
 
@@ -133,13 +158,18 @@ img {
 }
 
 .card-title {
+
     span {
       padding: .0em .6em .0em;
     }
 
+    h1, h2,, h3, h4, h5 {
+      padding-bottom: 0px;
+    }
+
   //border-bottom: 1px #EFEFEF solid;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 25px;
+  margin-bottom: 0px;
 }
 
 
