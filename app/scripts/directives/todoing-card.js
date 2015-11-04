@@ -25,8 +25,6 @@ angular.module('todoingApp')
 		$scope.cardsLoaded = false;
 		$scope.myCards = [];
 
-		todoRegex
-
         var doingRegex = /(doing)/g;
         var todoRegex = /(to do)/g;
         var predicate = function(listObject){return listObject.name.toLowerCase().match(re); }

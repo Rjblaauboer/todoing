@@ -21,9 +21,10 @@ h1, h2, h3, h4, h5 {
   color: #666;
 }
 
-.col-sm-6 {
+.col-sm-6, col-md-4 {
     padding-left: 10px;
     padding-right: 10px;
+    min-height: 0px;
 }
 
 img {

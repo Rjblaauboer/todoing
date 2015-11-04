@@ -43,7 +43,7 @@ angular.module('todoingApp')
   	var getCardsForLists = function(lists) {
   		trelloader.getCardsForLists(lists).then(function(cards){
   			console.log('cards ', cards);
-  	    	$scope.cards = cards;
+  	    $scope.cards = cards;
   		});
   	}
 
@@ -51,9 +51,9 @@ angular.module('todoingApp')
 
   		window.localStorage.setItem('trello_organisation', organisation.id);
 
-  	    $scope.cards = [];
-  	    $scope.members = [];
-  	    $scope.lists = [];
+  	  $scope.cards = [];
+  	  $scope.members = [];
+  	  $scope.lists = [];
 
   		trelloader.getTodoingLists().then(function(lists){
   	    	console.log('lists ', lists);
@@ -65,7 +65,7 @@ angular.module('todoingApp')
 
 	    trelloader.getMembers().then(function(members){
   	    	console.log('members ', members);
-  	    	$scope.members = members;
+  	      $scope.members = members;
 	    }, function(err){
 	        console.error(err);
 	    });
@@ -89,7 +89,7 @@ angular.module('todoingApp')
 	  	    	var organisationId = window.localStorage.getItem('trello_organisation');
 
 	  	    	if (!organisationId) {
-					$scope.currentOrganisation = organisations[0];
+					    $scope.currentOrganisation = organisations[0];
 	  	    	} else {
 		  	    	$scope.currentOrganisation =  _.filter(organisations, function(org){
 		  	    		return org.id === organisationId;
@@ -98,9 +98,9 @@ angular.module('todoingApp')
 
 	  	    	console.log('current org :', $scope.currentOrganisation);
 
-				if ($scope.currentOrganisation) {
-					$scope.organisationChanged($scope.currentOrganisation);
-				};
+    				if ($scope.currentOrganisation) {
+    					$scope.organisationChanged($scope.currentOrganisation);
+    				};
 
 		    }, function(err){
 		        console.error(err);
