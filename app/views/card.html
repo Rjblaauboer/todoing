@@ -1,22 +1,28 @@
   <div class="panel panel-default panel-todoing" ng-show="myCards.length">
-    <div class="panel-heading">{{member.fullName}} <span class="label label-primary
-    ">{{myCards.length}}</span></div>
+    <div class="panel-heading"><h3>{{member.fullName}}</h3><h3><span class="label
+    " ng-class="myCards.length>5?'label-danger':'label-success'">{{myCards.length}}</span></h3></div>
     <div class="panel-body">
     <div class="col-sm-6">
-    	<h3>to do <span class="label label-primary">{{myTodoCards.length}}</span></h3>
-    	<ol>
-		    <li ng-repeat="card in myTodoCards">
-				<a href="{{card.url}}">{{card.name}}</a>
-		    </li>
-	    </ol>
+        <div class="card-title">
+        	<h3><span class="label" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span> to do</h3>
+        </div>
+	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
+            <a href="{{card.url}}">
+                <span class="label label-default">{{card.board.name}}</span><br>
+				<p>{{card.name}}</p>
+            </a>
+	    </div>
     </div>
     <div class="col-sm-6">
-	    <h3>doing <span class="label label-success">{{myDoingCards.length}}</span></h3>
-    	<ol>
-		    <li ng-repeat="card in myDoingCards">
-				<a href="{{card.url}}">{{card.name}}</a>
-		    </li>
-	    </ol>
+        <div class="card-title">
+    	    <h3><span class="label" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span> doing</h3>
+        </div>
+        <div class="todoing-cell" ng-repeat="card in myDoingCards">
+            <a href="{{card.url}}">
+                <span class="label label-default">{{card.board.name}}</span><br>
+                <p>{{card.name}}</p>
+            </a>
+        </div>
     </div>
     </div>
   </div>

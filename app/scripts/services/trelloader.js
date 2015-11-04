@@ -11,10 +11,6 @@ angular.module('todoingApp')
   .service('trelloader', function (TrelloApi, $q, localStorageService, $http) {
 
   	var authenticated = false;
-    var organisation  = window.localStorage.getItem('trello_organisation');
-    var key = window.localStorage.getItem('trello_key');
-    var token = window.localStorage.getItem('trello_token');
-
 
     var authenticate = function(callback){
 
@@ -49,7 +45,7 @@ angular.module('todoingApp')
         var organisation  = window.localStorage.getItem('trello_organisation');
         var key = window.localStorage.getItem('trello_key');
         var token = window.localStorage.getItem('trello_token');
-        
+
         $http.get('https://api.trello.com/1/organizations/'+organisation+'/members/?token='+token+'&key='+key).then(function(members){
             deferred.resolve(members.data);
         }, function(err){
@@ -105,7 +101,7 @@ angular.module('todoingApp')
         var token = window.localStorage.getItem('trello_token');
 
         $http.get('https://api.trello.com/1/lists/'+list.id+'/cards?token='+token+'&key='+key+'&filter=open').then(function(_cards){
-            _.map(_cards.data, function(data){return data['list'] = list});
+            _.map(_cards.data, function(data){data['list'] = list;data['board'] = list.board;return;});
             deferred.resolve(_cards.data);
         }, function(err){
             deferred.reject(err);
@@ -144,6 +140,15 @@ angular.module('todoingApp')
             var re = /(doing|to do)/g;
             var predicate = function(listObject){return listObject.name.toLowerCase().match(re); }
             var lists = _.chain(boards).pluck('lists').flatten().filter(predicate).value();
+
+            for (var i = lists.length - 1; i >= 0; i--) {
+                for (var j= boards.length - 1; j >= 0; j--) {
+                    if(boards[j].id === lists[i].idBoard){
+                        lists[i]['board'] = boards[j];
+                        delete lists[i]['idBoard']
+                    }
+                };
+            };
 
             deferred.resolve(lists);
         });
