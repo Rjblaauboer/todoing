@@ -2,12 +2,12 @@
     <div class="panel-heading">
         <img class="" ng-show="member.avatarHash" ng-src="{{'https://trello-avatars.s3.amazonaws.com/'+member.avatarHash+'/30.png'}}"/>
         <h3>{{member.fullName}}</h3>
-        <h3><span class="label" ng-class="myCards.length>5?'label-danger':'label-success'">{{myCards.length}}</span></h3>
+        <h4><span class="label hidden" ng-class="myCards.length>5?'label-danger':'label-success'">{{myCards.length}}</span></h4>
         </div>
     <div class="panel-body">
     <div class="col-sm-6">
         <div class="card-title">
-        	<h3><span class="label" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span> to do</h3>
+        	<h4>to do <span class="label" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span></h4>
         </div>
         <div class=" cell-column">
     	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
@@ -20,7 +20,7 @@
     </div>
     <div class="col-sm-6">
         <div class="card-title">
-    	    <h3><span class="label" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span> doing</h3>
+    	    <h4>doing <span class="label" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span></h4>
         </div>
         <div class="cell-column">
             <div class="todoing-cell " ng-repeat="card in myDoingCards">
