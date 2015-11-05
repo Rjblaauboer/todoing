@@ -51,6 +51,8 @@ angular.module('todoingApp')
 
   		window.localStorage.setItem('trello_organisation', organisation.id);
 
+      $scope.currentOrganisation = organisation;
+
   	  $scope.cards = [];
   	  $scope.members = [];
   	  $scope.lists = [];
