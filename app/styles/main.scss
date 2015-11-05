@@ -4,7 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 // endbower
 
 
-$max-cell-height:520px;
+$max-cell-height:480px;
 
 .browsehappy {
   margin: 0.2em 0;
@@ -127,7 +127,6 @@ img {
     color: inherit;
 }
 
-
 .panel-todoing {
 
   height: $max-cell-height;
@@ -171,7 +170,7 @@ img {
 
 
       .cell-column {
-        height: $max-cell-height;
+        height: $max-cell-height - 120px;
         overflow: scroll;
         padding-right: 1px;
         padding-bottom: 20px;
@@ -198,6 +197,10 @@ img {
          }
       }
   }
+}
+
+.panel-footer {
+  border-top: 2px solid #ddd;
 }
 
 .todoing-cell {

@@ -5,33 +5,35 @@
         <h4><span class="label hidden" ng-class="myCards.length>5?'label-danger':'label-success'">{{myCards.length}}</span></h4>
         </div>
     <div class="panel-body">
-    <div class="col-sm-6">
-        <div class="card-title">
-        	<h4>to do</h4>
-            <h4><span class="label label-todo" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span></h4>
+        <div class="col-sm-6">
+            <div class="card-title">
+            	<h4>to do</h4>
+                <h4><span class="label label-todo" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span></h4>
+            </div>
+            <div class=" cell-column">
+        	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
+                    <a href="{{card.url}}">
+                        <span class="label label-default">{{card.board.name}}</span><br>
+        				<p>{{card.name}}</p>
+                    </a>
+        	    </div>
+            </div>
         </div>
-        <div class=" cell-column">
-    	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
-                <a href="{{card.url}}">
-                    <span class="label label-default">{{card.board.name}}</span><br>
-    				<p>{{card.name}}</p>
-                </a>
-    	    </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card-title">
-    	    <h4>doing</h4>
-            <h4><span class="label label-todo" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span></h4>
-        </div>
-        <div class="cell-column">
-            <div class="todoing-cell " ng-repeat="card in myDoingCards">
-                <a href="{{card.url}}">
-                    <span class="label label-default">{{card.board.name}}</span><br>
-                    <p>{{card.name}}</p>
-                </a>
+        <div class="col-sm-6">
+            <div class="card-title">
+        	    <h4>doing</h4>
+                <h4><span class="label label-todo" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span></h4>
+            </div>
+            <div class="cell-column">
+                <div class="todoing-cell " ng-repeat="card in myDoingCards">
+                    <a href="{{card.url}}">
+                        <span class="label label-default">{{card.board.name}}</span><br>
+                        <p>{{card.name}}</p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="panel-footer">
     </div>
   </div>
