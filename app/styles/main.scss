@@ -100,22 +100,41 @@ img {
   padding-right: 0px;
 }
 
-.panel-todoing {
-
-  height: $max-cell-height;
-  max-height: $max-cell-height;
+.panel {
   overflow: hidden;
   border-color: #ccc;
   border-width: 1px;
   box-shadow: 0 2px 3px #ccc;
+}
 
-  .panel-heading {
+.panel-login {
+  margin-top: 50%;
+}
 
+.panel-heading, .panel-default  > .panel-heading {
     padding-top: 1px;
     padding-bottom: 1px;
     background-color: #FFF;
     border-bottom-color: #EEE;
     border-bottom-width: 2px;
+}
+
+.panel-subtitle {
+  margin-bottom: 40px;
+}
+
+.panel-subtitle > .btn {
+    color: inherit;
+}
+
+
+.panel-todoing {
+
+  height: $max-cell-height;
+  max-height: $max-cell-height;
+
+
+  .panel-heading {
 
     h1, h2, h3, h4, h5 {
       margin-top: 3px;
