@@ -222,15 +222,23 @@ img {
     }
 }
 
+.label-todo {
+    position: absolute;
+    top: 41px;
+    padding: .2em .6em .3em;
+    width: 40px;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    border: 3px #FFF solid;
+    border-radius: 6px;
+}
+
 .card-title {
 
     margin: 15px -15px;
     padding-bottom: 10px;
     border-bottom: 2px #EEE solid;
-
-    span {
-      padding: .0em .6em .0em;
-    }
 
     h1, h2,, h3, h4, h5 {
       padding-bottom: 0px;

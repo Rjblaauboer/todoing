@@ -7,7 +7,8 @@
     <div class="panel-body">
     <div class="col-sm-6">
         <div class="card-title">
-        	<h4>to do <span class="label" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span></h4>
+        	<h4>to do</h4>
+            <h4><span class="label label-todo" ng-class="myTodoCards.length>3?'label-danger':'label-success'">{{myTodoCards.length}}</span></h4>
         </div>
         <div class=" cell-column">
     	    <div class="todoing-cell" ng-repeat="card in myTodoCards">
@@ -20,7 +21,8 @@
     </div>
     <div class="col-sm-6">
         <div class="card-title">
-    	    <h4>doing <span class="label" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span></h4>
+    	    <h4>doing</h4>
+            <h4><span class="label label-todo" ng-class="myDoingCards.length>1?'label-danger':'label-success'">{{myDoingCards.length}}</span></h4>
         </div>
         <div class="cell-column">
             <div class="todoing-cell " ng-repeat="card in myDoingCards">
