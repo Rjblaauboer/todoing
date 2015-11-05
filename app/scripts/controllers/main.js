@@ -14,10 +14,13 @@ angular.module('todoingApp')
     var key = window.localStorage.getItem('trello_key');
     var secret = window.localStorage.getItem('trello_secret');
 
+    $scope.loaded = false;
+
     var checkCreds = function(){
     	key = window.localStorage.getItem('trello_key');
     	secret = window.localStorage.getItem('trello_secret');
     	$scope.hasCreds = (key !== null &&  secret !== null);
+      if (!$scope.hasCreds) {$scope.loaded = true;};
     	return  $scope.hasCreds;
     }
 
@@ -44,6 +47,7 @@ angular.module('todoingApp')
   		trelloader.getCardsForLists(lists).then(function(cards){
   			console.log('cards ', cards);
   	    $scope.cards = cards;
+        $scope.loaded = true;
   		});
   	}
 

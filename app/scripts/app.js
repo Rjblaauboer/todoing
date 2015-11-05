@@ -14,7 +14,8 @@ angular
     'ngTouch',
     'trello',
     'angular-underscore',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'angularSpinner'
   ])
 
 .config(['TrelloApiProvider', function(TrelloApiProvider) {
