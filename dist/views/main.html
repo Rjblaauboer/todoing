@@ -1,31 +1,76 @@
+<!--  navigation -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a  class="navbar-brand" href="{{currentOrganisation.url}}">{{currentOrganisation.displayName}}</a></li>
+        <div ="brand-container">
+          <div style="position: absolute; left: 50%; width:50%">
+          <div style="position: relative; left: -50%;">
+          <li ng-show="hasCreds"><a  class="navbar-brand" href="{{currentOrganisation.url}}">Who's doing what @ {{currentOrganisation.displayName}}</a></li>
+          </div>
+          </div>
+        </div>
       </ul>
       <ul class="nav navbar-nav navbar-right"  ng-show="hasCreds">
-        <li><select ng-model="currentOrganisation" ng-options="currentOrganisation as currentOrganisation.displayName for currentOrganisation in organisations" ng-change="organisationChanged(currentOrganisation)" >
-        </select>
-        </li>
-        <li ng-click="reset()"><button class="btn btn-xs btn-default" href="#">reset credentials</button></li>
+          <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-organisation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></button>
+          <ul class="dropdown-menu" >
+            <li ng-repeat="org in organisations" ng-click="organisationChanged(org)"><a href="#">{{org.displayName}}</a></li>
+            <li role="separator" class="divider"></li>
+            <li ng-click="reset()"><a href="#">Logout</a></li>
+          </ul>
       </ul>
   </div>
 </nav>
+
+<!--  card view -->
 <div class="container-fluid" ng-show="hasCreds">
   <div class="col-sm-6 col-md-4" ng-repeat="member in members">
     <todoing member="member" cards="cards" organisation="currentOrganisation.id"></todoing>
   </div>
 </div>
+
+
+<!--  loading spinner -->
+ <span us-spinner="{radius:10, width:4, length: 6, color: '#aaa'}" ng-show="!loaded" spinner-on="!loaded"></span>
+
+<!--  login panel -->
 <div class="container" ng-show="!hasCreds">
-  <h3>looks like you dont have any credentials...</h3>
-  <h5><a href="https://trello.com/app-key">get you application key and secret here</a></h5>
-  <form novalidate class="simple-form">
-    <div class="form-group">
-    key: <input type="text" class="form-control"  ng-model="creds.key" /><br />
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default panel-login">
+      <div class="panel-heading">
+        <h4 class="text-center">Welcome</h4>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-12">
+          <h5 class="panel-subtitle">Get you application key and secret <a class="btn btn-xs btn-default" target="_blank" href="https://trello.com/app-key"><strong>here</strong></a></h5>
+          <form novalidate class="simple-form">
+            <div class="form-group">
+              <input type="text" class="form-control text-center" placeholder="key"  ng-model="creds.key" /><br />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control text-center" placeholder="secret"  ng-model="creds.secret" /><br />
+            </div>
+            <button type="submit" class="btn btn-success btn-block" ng-click="update(creds)" value="Save" >Login</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-    secret: <input type="text" class="form-control"  ng-model="creds.secret" /><br />
-    </div>
-    <button type="submit" class="btn btn-success" ng-click="update(creds)" value="Save" >save</button>
-  </form>
+  </div>
 </div>
+
+
+<!--  no organisations panel -->
+<div class="container" ng-show="hasCreds && organisations.length === 0">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-default panel-login">
+      <div class="panel-heading">
+        <h4 class="text-center">No Organisations</h4>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-12">
+          <h5 class="panel-subtitle">Looks like you are not a member of any organisations. Join one and then refresh this page.</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
